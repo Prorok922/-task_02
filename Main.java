@@ -151,7 +151,7 @@ public class Main {
                     if (super.get(key) == (null)){
                         return (V) Collections.emptyList();
                     }
-                } catch (Exception ignor) {
+                } catch (Exception ignored) {
                 }
                 return super.get(key);
             }
@@ -170,11 +170,11 @@ public class Main {
         @Override
         public void accept(TMessage<T> t){
             if (mailBox.containsKey(t.getTo())){
-                List list = mailBox.get(t.getTo());
+                List<T> list = mailBox.get(t.getTo());
                 list.add(t.getContent());
                 mailBox.put(t.getTo(), list);
             } else {
-                List list = new ArrayList();
+                List<T> list = new ArrayList<>();
                 list.add(t.getContent());
                 mailBox.put(t.getTo(), list);
             }
